@@ -5,14 +5,19 @@ import { Product, CartItem } from '../types';
 
 interface CartContextType {
   cart: CartItem[];
+  cartItems: CartItem[];
   addToCart: (product: Product, quantity?: number) => void;
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
   totalItems: number;
+  cartCount: number;
   subtotal: number;
+  cartTotal: number;
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
+  isMobileMenuOpen: boolean;
+  setIsMobileMenuOpen: (open: boolean) => void;
   
   // Wishlist
   wishlist: string[];
@@ -44,6 +49,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [wishlist, setWishlist] = useState<string[]>(['prod-1']);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -159,14 +165,19 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     <CartContext.Provider
       value={{
         cart,
+        cartItems: cart,
         addToCart,
         removeFromCart,
         updateQuantity,
         clearCart,
         totalItems,
+        cartCount: totalItems,
         subtotal,
+        cartTotal: subtotal,
         isCartOpen,
         setIsCartOpen,
+        isMobileMenuOpen,
+        setIsMobileMenuOpen,
         wishlist,
         toggleWishlist,
         isWishlisted,

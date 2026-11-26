@@ -4,7 +4,6 @@ import Categories from "./components/Categories";
 import PopularPicks from "./components/PopularPicks";
 import PromoBanner from "./components/PromoBanner";
 import WhyChooseUs from "./components/WhyChooseUs";
-import Testimonials from "./components/Testimonials";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
 import CartDrawer from "./components/CartDrawer";
@@ -32,13 +31,10 @@ export default function Home() {
         {/* 4. Middle Offer Banner: Flat 15% OFF + 4 Trust Badges */}
         <PromoBanner />
 
-        {/* 5. Why Choose Zozu: 4 Feature cards + Smiling baby photo card */}
+        {/* 5. Why Choose BabyGlow: 4 Feature cards + Smiling baby photo card */}
         <WhyChooseUs />
 
-        {/* 6. What Our Parents Say: Testimonials carousel */}
-        <Testimonials />
-
-        {/* 7. Stay Updated Newsletter with paper airplane doodle & peeking mascot */}
+        {/* 6. Stay Updated Newsletter with paper airplane doodle & peeking mascot */}
         <Newsletter />
       </main>
 

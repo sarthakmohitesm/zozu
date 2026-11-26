@@ -22,7 +22,7 @@ export default function PopularPicks() {
   return (
     <section id="popular" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6 sm:mb-8">
+      <div className="flex items-center justify-between gap-3 mb-6 sm:mb-8">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -43,18 +43,28 @@ export default function PopularPicks() {
           </p>
         </div>
 
-        {(searchQuery || selectedCategory) && (
-          <button
-            type="button"
-            onClick={() => {
-              setSelectedCategory(null);
-              setSearchQuery('');
-            }}
-            className="inline-flex items-center gap-1.5 self-start sm:self-auto px-4 py-2 rounded-full border border-rose-300 text-rose-600 hover:bg-rose-50 text-xs sm:text-sm font-semibold transition group"
-          >
-            <span>Reset Filters / Show All</span>
-          </button>
-        )}
+        <div>
+          {searchQuery || selectedCategory ? (
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedCategory(null);
+                setSearchQuery('');
+              }}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-rose-300 text-rose-600 hover:bg-rose-50 text-xs sm:text-sm font-semibold transition group"
+            >
+              <span>Show All</span>
+            </button>
+          ) : (
+            <a
+              href="#popular"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-rose-300 hover:border-rose-400 text-rose-600 hover:bg-rose-50 text-xs sm:text-sm font-bold transition group"
+            >
+              <span>View All Products</span>
+              <ArrowRight className="w-3.5 h-3.5 transition transform group-hover:translate-x-1" />
+            </a>
+          )}
+        </div>
       </div>
 
       {/* When no products match search */}

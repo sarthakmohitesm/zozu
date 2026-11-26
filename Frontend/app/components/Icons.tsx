@@ -184,3 +184,89 @@ export function YoutubeIcon({ className = "w-4 h-4" }: { className?: string }) {
     </svg>
   );
 }
+
+export function PinterestIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0a12 12 0 0 0-4.37 23.18c-.06-.94-.1-2.38.02-3.41l1.45-6.14s-.37-.74-.37-1.84c0-1.72 1-3.01 2.25-3.01 1.06 0 1.57.8 1.57 1.75 0 1.07-.68 2.66-1.03 4.14-.3 1.24.62 2.26 1.84 2.26 2.21 0 3.91-2.33 3.91-5.7 0-2.98-2.14-5.06-5.2-5.06-3.54 0-5.62 2.66-5.62 5.4 0 1.07.41 2.22.93 2.84.1.12.11.23.08.36l-.35 1.43c-.05.23-.19.28-.43.17-1.61-.75-2.62-3.1-2.62-4.99 0-4.06 2.95-7.79 8.51-7.79 4.47 0 7.94 3.19 7.94 7.44 0 4.44-2.8 8.01-6.68 8.01-1.31 0-2.53-.68-2.95-1.48l-.8 3.06c-.29 1.12-1.08 2.52-1.61 3.38A12 12 0 1 0 12 0z" />
+    </svg>
+  );
+}
+
+// 3D Fluffy Teddy Bear for 15% OFF Promo Card
+export function FluffyTeddy({ className = "w-48 h-48" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="fluffyFur" cx="40%" cy="35%" r="65%">
+          <stop offset="0%" stopColor="#F9D7B7" />
+          <stop offset="60%" stopColor="#E2A779" />
+          <stop offset="100%" stopColor="#C48455" />
+        </radialGradient>
+        <radialGradient id="innerEar" cx="40%" cy="40%" r="60%">
+          <stop offset="0%" stopColor="#FFD1DC" />
+          <stop offset="100%" stopColor="#F48FB1" />
+        </radialGradient>
+        <radialGradient id="snoutGrad" cx="35%" cy="30%" r="70%">
+          <stop offset="0%" stopColor="#FFF7ED" />
+          <stop offset="100%" stopColor="#FED7AA" />
+        </radialGradient>
+        <filter id="teddyShadow" x="-10%" y="-10%" width="120%" height="120%">
+          <feDropShadow dx="0" dy="6" stdDeviation="6" floodColor="#8B4513" floodOpacity="0.25" />
+        </filter>
+      </defs>
+
+      {/* Shadow */}
+      <ellipse cx="100" cy="188" rx="65" ry="10" fill="#E2A779" opacity="0.35" />
+
+      {/* Left Ear */}
+      <circle cx="56" cy="54" r="24" fill="url(#fluffyFur)" filter="url(#teddyShadow)" />
+      <circle cx="56" cy="54" r="14" fill="url(#innerEar)" />
+
+      {/* Right Ear */}
+      <circle cx="144" cy="54" r="24" fill="url(#fluffyFur)" filter="url(#teddyShadow)" />
+      <circle cx="144" cy="54" r="14" fill="url(#innerEar)" />
+
+      {/* Body */}
+      <ellipse cx="100" cy="144" rx="52" ry="46" fill="url(#fluffyFur)" filter="url(#teddyShadow)" />
+      {/* Tummy highlight */}
+      <ellipse cx="100" cy="148" rx="34" ry="28" fill="#FFF7ED" opacity="0.85" />
+
+      {/* Head */}
+      <circle cx="100" cy="95" r="48" fill="url(#fluffyFur)" filter="url(#teddyShadow)" />
+
+      {/* Cute Rosy Cheeks */}
+      <ellipse cx="68" cy="108" rx="9" ry="6" fill="#F43F5E" opacity="0.4" />
+      <ellipse cx="132" cy="108" rx="9" ry="6" fill="#F43F5E" opacity="0.4" />
+
+      {/* Snout */}
+      <ellipse cx="100" cy="112" rx="20" ry="15" fill="url(#snoutGrad)" />
+      {/* Nose */}
+      <path d="M92 104C92 100 108 100 108 104C108 109 102 113 100 113C98 113 92 109 92 104Z" fill="#3E2723" />
+      {/* Smile */}
+      <path d="M100 113V118M95 118C97 121 100 121 100 118C100 121 103 121 105 118" stroke="#3E2723" strokeWidth="2.5" strokeLinecap="round" />
+
+      {/* Eyes */}
+      <circle cx="80" cy="88" r="6.5" fill="#2E1C14" />
+      <circle cx="82" cy="85.5" r="2.2" fill="#FFFFFF" />
+      <circle cx="78.5" cy="89.5" r="1" fill="#FFFFFF" />
+
+      {/* Right Eye */}
+      <circle cx="120" cy="88" r="6.5" fill="#2E1C14" />
+      <circle cx="122" cy="85.5" r="2.2" fill="#FFFFFF" />
+      <circle cx="118.5" cy="89.5" r="1" fill="#FFFFFF" />
+
+      {/* Cute Pink Bowtie */}
+      <path d="M85 135L100 142L85 149C82 150 78 147 79 142C80 137 82 134 85 135Z" fill="#F43F5E" />
+      <path d="M115 135L100 142L115 149C118 150 122 147 121 142C120 137 118 134 115 135Z" fill="#F43F5E" />
+      <circle cx="100" cy="142" r="5" fill="#BE123C" />
+
+      {/* Paws */}
+      <ellipse cx="62" cy="140" rx="14" ry="12" transform="rotate(20 62 140)" fill="url(#fluffyFur)" />
+      <circle cx="62" cy="140" r="7" fill="#FFF7ED" opacity="0.8" />
+
+      <ellipse cx="138" cy="140" rx="14" ry="12" transform="rotate(-20 138 140)" fill="url(#fluffyFur)" />
+      <circle cx="138" cy="140" r="7" fill="#FFF7ED" opacity="0.8" />
+    </svg>
+  );
+}

@@ -155,7 +155,7 @@ export default function Hero() {
                       />
                     </div>
                     <div>
-                      <p className="text-[10px] sm:text-xs font-bold text-rose-500 uppercase tracking-wide">Zozu Range</p>
+                      <p className="text-[10px] sm:text-xs font-bold text-rose-500 uppercase tracking-wide">BabyGlow Range</p>
                       <p className="text-xs sm:text-sm font-extrabold text-gray-800 leading-tight">Gentle Lotion & Tear-Free Wash</p>
                       <p className="text-[10px] text-gray-500">Hypoallergenic & Pediatrician Approved</p>
                     </div>

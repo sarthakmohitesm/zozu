@@ -1,77 +1,78 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { Send, CheckCircle2, Heart } from "lucide-react";
-import { BearLogo } from "./Icons";
+import React, { useState } from 'react';
+import { Mail, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { PaperPlaneDoodle, BearLogo } from './Icons';
 
 export default function Newsletter() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim() && email.includes("@")) {
+    if (email.trim()) {
       setSubscribed(true);
-      setEmail("");
+      setEmail('');
     }
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-rose-50 via-pink-50/70 to-rose-100/60 border border-rose-200/60 p-8 sm:p-12 shadow-sm">
-        {/* Background glow & accents */}
-        <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-rose-200/40 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-64 h-64 bg-amber-100/40 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 max-w-2xl mx-auto text-center">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white shadow-md shadow-rose-100 border border-rose-100 mb-5">
-            <BearLogo className="w-9 h-9" />
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <div className="relative overflow-hidden rounded-3xl bg-linear-to-r from-[#ffe4eb] via-[#ffebf0] to-[#fce2e8] border border-rose-200/80 p-6 sm:p-8 shadow-xs">
+        
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
+          
+          {/* Left: Icon + Heading */}
+          <div className="flex items-center gap-4 text-center sm:text-left">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/90 border border-rose-200 flex items-center justify-center shadow-xs shrink-0 text-rose-500">
+              <Mail className="w-6 h-6 sm:w-7 sm:h-7" />
+            </div>
+            <div>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-gray-900 tracking-tight">
+                Stay Updated!
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 mt-0.5">
+                Get the latest offers, baby care tips and more.
+              </p>
+            </div>
           </div>
 
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide bg-rose-100/80 text-rose-700 uppercase mb-3">
-            <Heart className="w-3 h-3 fill-rose-500 text-rose-500" />
-            Join the Zozu Family
-          </span>
-
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-stone-900 tracking-tight">
-            Stay Updated with Gentle Care
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-stone-600 leading-relaxed">
-            Subscribe for gentle baby skincare tips, pediatrician advice, and early access to new soothing formula drops.
-          </p>
-
-          {subscribed ? (
-            <div className="mt-8 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-center justify-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-              <span className="font-medium text-sm sm:text-base">
-                Welcome to the family! You're now on our gentle care list.
-              </span>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <div className="relative flex-1">
+          {/* Center: Email Subscription Form */}
+          <div className="w-full lg:max-w-md">
+            {subscribed ? (
+              <div className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-emerald-500 text-white text-xs sm:text-sm font-semibold shadow-xs">
+                <CheckCircle2 className="w-4 h-4" />
+                <span>You're on the list! Welcome to the family.</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex items-center gap-2 bg-white/90 p-1.5 rounded-full border border-rose-200 shadow-xs focus-within:ring-2 focus-within:ring-rose-400">
                 <input
                   type="email"
+                  placeholder="Enter your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address..."
                   required
-                  className="w-full px-5 py-3.5 rounded-full text-sm bg-white border border-stone-200 text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-rose-400 shadow-xs"
+                  className="w-full bg-transparent px-4 py-2 text-xs sm:text-sm text-gray-800 placeholder-gray-400 focus:outline-none"
                 />
-              </div>
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-rose-500 hover:bg-rose-600 active:scale-95 text-white text-sm font-semibold shadow-md shadow-rose-200 transition"
-              >
-                <span>Subscribe</span>
-                <Send className="w-4 h-4" />
-              </button>
-            </form>
-          )}
+                <button
+                  type="submit"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-linear-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white text-xs sm:text-sm font-bold shadow-xs transition hover:scale-105 active:scale-95 shrink-0"
+                >
+                  <span>Subscribe</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </form>
+            )}
+          </div>
 
-          <p className="mt-4 text-xs text-stone-500">
-            🔒 We respect your privacy. No spam, only loving care recommendations.
-          </p>
+          {/* Right: Paper Plane Doodle + Peeking Mascot */}
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
+            <PaperPlaneDoodle className="w-10 h-10 text-rose-500" />
+            <div className="w-16 h-16 rounded-2xl bg-white/80 border border-rose-100 flex items-center justify-center shadow-xs">
+              <BearLogo className="w-12 h-12" />
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

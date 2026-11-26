@@ -18,9 +18,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Zozu — Gentle Baby Cosmetics & Natural Skincare",
+  title: "BabyGlow — Gentle Care. Happy Baby.",
   description:
-    "Gentle, dermatologist-approved and pediatrician-tested baby skincare, soothing lotions, tear-free shampoos, and baby gift hampers.",
+    "Premium baby cosmetics for soft, healthy and happy skin. Dermatologist approved and pediatrician tested.",
   icons: {
     icon: "/favicon.ico",
   },

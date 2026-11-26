@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { Home, Grid, Heart, ShoppingBag } from "lucide-react";
+import { Home, Grid, Heart, ShoppingBag, Sparkles } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
 export default function MobileBottomNav() {
   const { cartCount, wishlist, setIsCartOpen, setSelectedCategory } = useCart();
 
   const scrollToCategories = () => {
-    setSelectedCategory("All");
+    setSelectedCategory(null);
     const elem = document.getElementById("categories");
     if (elem) {
       elem.scrollIntoView({ behavior: "smooth" });
@@ -19,6 +19,13 @@ export default function MobileBottomNav() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const scrollToOffers = () => {
+    const elem = document.getElementById("offers");
+    if (elem) {
+      elem.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const scrollToPopular = () => {
     const elem = document.getElementById("popular");
     if (elem) {
@@ -27,34 +34,46 @@ export default function MobileBottomNav() {
   };
 
   return (
-    <nav className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200/80 px-4 py-2 shadow-lg safe-area-pb">
+    <nav className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-rose-100/80 px-2 py-1.5 shadow-lg safe-area-pb">
       <div className="flex items-center justify-around max-w-md mx-auto">
         {/* Home */}
         <button
           onClick={scrollToHome}
-          className="flex flex-col items-center gap-1 text-stone-600 hover:text-rose-500 py-1 px-3 transition"
+          className="flex flex-col items-center gap-0.5 text-stone-600 hover:text-rose-500 py-1 px-2.5 transition"
         >
-          <Home className="w-5 h-5" />
+          <Home className="w-4 h-4" />
           <span className="text-[10px] font-medium">Home</span>
         </button>
 
         {/* Categories */}
         <button
           onClick={scrollToCategories}
-          className="flex flex-col items-center gap-1 text-stone-600 hover:text-rose-500 py-1 px-3 transition"
+          className="flex flex-col items-center gap-0.5 text-stone-600 hover:text-rose-500 py-1 px-2.5 transition"
         >
-          <Grid className="w-5 h-5" />
+          <Grid className="w-4 h-4" />
           <span className="text-[10px] font-medium">Categories</span>
+        </button>
+
+        {/* Offers */}
+        <button
+          onClick={scrollToOffers}
+          className="relative flex flex-col items-center gap-0.5 text-stone-600 hover:text-rose-500 py-1 px-2.5 transition"
+        >
+          <Sparkles className="w-4 h-4 text-amber-500" />
+          <span className="absolute -top-1 right-2 px-1 rounded-full bg-rose-500 text-white text-[8px] font-black">
+            15%
+          </span>
+          <span className="text-[10px] font-medium">Offers</span>
         </button>
 
         {/* Wishlist */}
         <button
           onClick={scrollToPopular}
-          className="relative flex flex-col items-center gap-1 text-stone-600 hover:text-rose-500 py-1 px-3 transition"
+          className="relative flex flex-col items-center gap-0.5 text-stone-600 hover:text-rose-500 py-1 px-2.5 transition"
         >
-          <Heart className="w-5 h-5" />
+          <Heart className="w-4 h-4" />
           {wishlist.length > 0 && (
-            <span className="absolute top-0 right-2 w-4 h-4 rounded-full bg-rose-500 text-white text-[9px] font-bold flex items-center justify-center">
+            <span className="absolute -top-0.5 right-2 w-3.5 h-3.5 rounded-full bg-rose-500 text-white text-[8px] font-bold flex items-center justify-center">
               {wishlist.length}
             </span>
           )}
@@ -64,11 +83,11 @@ export default function MobileBottomNav() {
         {/* Cart Bag */}
         <button
           onClick={() => setIsCartOpen(true)}
-          className="relative flex flex-col items-center gap-1 text-stone-600 hover:text-rose-500 py-1 px-3 transition"
+          className="relative flex flex-col items-center gap-0.5 text-stone-600 hover:text-rose-500 py-1 px-2.5 transition"
         >
-          <ShoppingBag className="w-5 h-5" />
+          <ShoppingBag className="w-4 h-4" />
           {cartCount > 0 && (
-            <span className="absolute top-0 right-2 w-4 h-4 rounded-full bg-rose-500 text-white text-[9px] font-bold flex items-center justify-center animate-pulse">
+            <span className="absolute -top-0.5 right-2 w-3.5 h-3.5 rounded-full bg-rose-500 text-white text-[8px] font-bold flex items-center justify-center animate-pulse">
               {cartCount}
             </span>
           )}

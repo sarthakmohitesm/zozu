@@ -23,6 +23,15 @@ export interface CategoryItem {
   count?: number;
 }
 
+export interface Testimonial {
+  id: string;
+  name: string;
+  quote: string;
+  rating: number;
+  avatar: string;
+  badge?: string;
+}
+
 export interface CartItem {
   product: Product;
   quantity: number;

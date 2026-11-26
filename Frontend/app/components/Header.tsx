@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Search, ShoppingBag, User, Menu, Heart, ChevronDown, X, Star, ArrowRight, Sparkles, Zap } from 'lucide-react';
+import { Search, ShoppingBag, User, Menu, Heart, ChevronDown, X, Star, ArrowRight, Sparkles, Zap, Truck, Headphones } from 'lucide-react';
 import { BearLogo } from './Icons';
 import { useCart } from '../context/CartContext';
 import { CATEGORIES, POPULAR_PRODUCTS } from '../data/products';
@@ -176,6 +176,24 @@ export default function Header({ onOpenMobileMenu }: HeaderProps) {
         />
       )}
 
+      {/* Top Announcement Bar */}
+      <div className="bg-[#fff1f3] border-b border-rose-100/80 text-[11px] sm:text-xs text-stone-600 font-medium py-1.5 px-4 hidden sm:block">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <Truck className="w-3.5 h-3.5 text-rose-500" />
+            <span>Free Shipping on orders above ₹999</span>
+          </div>
+          <div className="hidden md:flex items-center gap-1.5">
+            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
+            <span>Pure & Safe for Your Little One</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <Headphones className="w-3.5 h-3.5 text-rose-500" />
+            <span>24/7 Customer Support</span>
+          </div>
+        </div>
+      </div>
+
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-rose-100 transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18 sm:h-20 gap-3">
@@ -196,7 +214,7 @@ export default function Header({ onOpenMobileMenu }: HeaderProps) {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-gray-900 group-hover:text-rose-600 transition flex items-center gap-0.5">
-                    Zo<span className="text-rose-500">zu</span>
+                    Baby<span className="text-rose-500">Glow</span>
                   </span>
                   <span className="text-[10px] sm:text-[11px] text-gray-500 -mt-1 font-medium tracking-wide">
                     Gentle Care. Happy Baby.
@@ -291,6 +309,14 @@ export default function Header({ onOpenMobileMenu }: HeaderProps) {
                 className="px-3.5 py-2 rounded-full text-gray-700 hover:text-rose-600 hover:bg-rose-50 transition"
               >
                 About
+              </a>
+
+              {/* Offers Link */}
+              <a
+                href="#offers"
+                className="px-3.5 py-2 rounded-full text-gray-700 hover:text-rose-600 hover:bg-rose-50 transition"
+              >
+                Offers
               </a>
 
               {/* Help Dropdown */}
